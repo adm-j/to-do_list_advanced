@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+
+      <div className="login">
+      <input type="text" id="textBox"/>
+      <input type="text" id="textBox"/>
+      <button id="inputButton">login</button>
+      </div>
+
+      <div className="noteInput">
+      <input type="text" id="textBox"/> <button id="inputButton">add note</button>
+      </div>
+
+      <div className="list">
+      <p>mapped list will go here</p>
+
+      </div>
+
     </div>
   );
 }
