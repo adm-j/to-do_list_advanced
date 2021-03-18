@@ -9,22 +9,6 @@
   height: 100%;
 }
 
-.login {
-  margin: 2vh;
-
-  text-align: center;
-  width: 15vw;
-}
-
-#textBox {
-  position: relative;
-  margin: 4px;
-}
-
-#inputButton {
-  height: 2.5vh;
-}
-
 .noteInput {
   margin: 2vh;
 

@@ -1,15 +1,18 @@
 import './App.css';
+import LoginScreen from './components/loginScreen/LoginScreen';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 const App = () => {
   return (
+    <Router>
+
     <div className="main">
 
-      <div className="login">
-      <input type="text" id="textBox"/>
-      <input type="text" id="textBox"/>
-      <button id="inputButton">login</button>
-      </div>
+        <div className="header">
+                <h1>To do List</h1>
+        </div>
 
+      <LoginScreen/>
       <div className="noteInput">
       <input type="text" id="textBox"/> <button id="inputButton">add note</button>
       </div>
@@ -20,6 +23,7 @@ const App = () => {
       </div>
 
     </div>
+    </Router>
   );
 }
 

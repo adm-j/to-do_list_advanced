@@ -1,0 +1,18 @@
+.login {
+    margin: 2vh;
+  
+    text-align: center;
+    width: 25vw;
+  }
+
+  .textBox {
+    position: relative;
+    margin: 4px;
+  }
+
+  .inputButton {
+    height: 2.5vh;
+    width: 10vw;
+
+    margin: 1.2vh;
+  }
