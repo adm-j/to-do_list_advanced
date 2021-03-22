@@ -1,8 +1,15 @@
+import {useState} from 'react';
 import './App.css';
 import LoginScreen from './components/loginScreen/LoginScreen';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 const App = () => {
+
+  const [component1, showComponent1] = useState("false");
+  const [component2, showComponent1] = useState("false");
+  const [component3, showComponent1] = useState("false");
+  const [component4, showComponent1] = useState("false");
+  
   return (
     <Router>
 
