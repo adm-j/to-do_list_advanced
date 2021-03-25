@@ -6,12 +6,13 @@ const Signup = () => {
         <div>
              <div className="login">
                  <div>
-                 <input type="text" className="textBox"/>
-                 <input type="text" className="textBox"/>
+                     <h3>Signup</h3>
+                 <input type="text" className="textBox" placeholder="Username" />
+                 <input type="text" className="textBox" placeholder="Password" />
                  </div>
 
                  <div id="loginButtons">
-                 <button className="inputButton">Create account</button>
+                 <button className="inputButton">Create</button>
                  </div>
             </div>
 

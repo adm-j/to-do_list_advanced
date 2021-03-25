@@ -1,31 +1,26 @@
 import {useState} from 'react';
-import '../loginScreen/LoginScreen.css'
+import {NavLink} from 'react-router-dom';
+import '../loginScreen/LoginScreen.css';
 
-const LoginScreen = () => {
+const LoginScreen = ({signUp, login}) => {
 
 const [loggedIn, setLoggedIn] = useState("false");
 
-if (loggedIn) {
     return (
              <div className="login">
                  <div>
-                 <input type="text" className="textBox" placeholder="username"/>
-                 <input type="text" className="textBox" placeholder="password"/>
+                     <h3>Login</h3>
+                 <input type="text" className="textBox" placeholder="Username"/>
+                 <input type="text" className="textBox" placeholder="Password"/>
                  </div>
 
                  <div id="loginButtons">
-                 <button className="inputButton">login</button>
+                 <button className="inputButton" onClick={login}>login</button>
                  <p classname="inputButton">Don't have an account?</p>
-                 <button className="inputButton">Sign Up</button>
+                 <NavLink to="signup"><button className="inputButton" onClick={signUp}>Sign Up</button></NavLink>
                  </div>
             </div>
-    )}
-
-    else {
-        <div>
-            <p>You are already logged in!</p>
-        </div>
-    }
+    )
     
     };
     

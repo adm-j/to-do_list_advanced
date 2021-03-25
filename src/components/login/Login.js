@@ -1,9 +1,11 @@
-
+import {NavLink} from 'react-router-dom';
 
 const Login = () => {
 
 return (
-    <div>login</div>
+    <div>
+        <NavLink to="login">login / signup</NavLink>
+    </div>
 )
 
 };

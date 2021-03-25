@@ -1,32 +1,50 @@
-import {useState} from 'react';
+//CSS
 import './App.css';
+import './components/login/Login.css'
+//Components
+import Login from './components/login/Login'
+import Logout from './components/logout/Logout'
 import LoginScreen from './components/loginScreen/LoginScreen';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Signup from './components/signup/Signup';
+//Packages
+import {useState} from 'react';
+import { BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom';
 
 const App = () => {
 
-  const [component1, showComponent1] = useState("false");
-  const [component2, showComponent1] = useState("false");
-  const [component3, showComponent1] = useState("false");
-  const [component4, showComponent1] = useState("false");
-  
+  const [loggedIn, setLogin] = useState(false)
+
+
   return (
     <Router>
 
     <div className="main">
 
         <div className="header">
-                <h1>To do List</h1>
+          <div id="login">{ loggedIn ? <Logout /> : <Login />}</div>
+          <NavLink to="/" id="home" >Home</NavLink>
+              <h1>To do List</h1>
         </div>
 
-      <LoginScreen/>
-      <div className="noteInput">
-      <input type="text" id="textBox"/> <button id="inputButton">add note</button>
-      </div>
+      <div className="content">
 
-      <div className="list">
-      <p>mapped list will go here</p>
+      <Switch>
+      <Route exact path="/">
+      { loggedIn ? <p>You're logged in! Content here</p> : <p>Welcome screen</p>}
+      </Route>
+      </Switch>
 
+      <Switch>
+      <Route exact path="/login">
+      <LoginScreen />
+      </Route>
+      </Switch>
+
+      <Switch>
+      <Route exact path="/signup">
+      <Signup />
+      </Route>
+      </Switch>
       </div>
 
     </div>

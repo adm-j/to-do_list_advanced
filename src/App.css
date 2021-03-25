@@ -9,9 +9,8 @@
   height: 100%;
 }
 
-.noteInput {
-  margin: 2vh;
-
-  text-align: center; 
-  width: 15vw;
+#home {
+  position: absolute;
+  top: 1%;
+  left: 5%;
 }

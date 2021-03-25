@@ -1,9 +1,11 @@
-
+import {NavLink} from 'react-router-dom';
 
 const Logout = () => {
 
     return (
-        <div>logout</div>
+        <div>
+        <NavLink to="login">logout</NavLink>
+        </div>
     )
     
     };
