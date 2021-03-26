@@ -13,7 +13,7 @@ import { BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom
 const App = () => {
 
   const [loggedIn, setLogin] = useState(false)
-
+  const [user, setUser] = useState("");
 
   return (
     <Router>
@@ -22,21 +22,21 @@ const App = () => {
 
         <div className="header">
           <div id="login">{ loggedIn ? <Logout /> : <Login />}</div>
-          <NavLink to="/" id="home" >Home</NavLink>
+          <NavLink to={`/${user}`} id="home" >Home</NavLink>
               <h1>To do List</h1>
         </div>
 
       <div className="content">
 
       <Switch>
-      <Route exact path="/">
+      <Route exact path={`/${user}`}>
       { loggedIn ? <p>You're logged in! Content here</p> : <p>Welcome screen</p>}
       </Route>
       </Switch>
 
       <Switch>
       <Route exact path="/login">
-      <LoginScreen />
+      <LoginScreen setIsAuthenticatored={setLogin}/>
       </Route>
       </Switch>
 

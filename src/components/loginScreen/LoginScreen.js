@@ -1,10 +1,33 @@
 import {useState} from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, useHistory} from 'react-router-dom';
 import '../loginScreen/LoginScreen.css';
 
-const LoginScreen = ({signUp, login}) => {
+const LoginScreen = ({signUp, login, setUser, setIsAuthenticatored}) => {
 
-const [loggedIn, setLoggedIn] = useState("false");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [message, setMessage] = useState("");
+
+    const history = useHistory();
+
+    const formHandler = async (event) => {
+        event.preventDefault(); //prevent refresh
+
+        const res = await fetch("http://localhost:5000/users/login", {
+            method: "POST",
+            headers: {"Content-Type" : "application/json"},
+            body: JSON.stringify(
+                { 
+                username: username,
+                password: password
+            })
+        })
+        const data = await res.json();
+        setUser(data.username)
+
+        history.push(`/${data.user}`);
+        setIsAuthenticatored(true);
+    }
 
     return (
              <div className="login">
@@ -16,7 +39,7 @@ const [loggedIn, setLoggedIn] = useState("false");
 
                  <div id="loginButtons">
                  <button className="inputButton" onClick={login}>login</button>
-                 <p classname="inputButton">Don't have an account?</p>
+                 <p>Don't have an account?</p>
                  <NavLink to="signup"><button className="inputButton" onClick={signUp}>Sign Up</button></NavLink>
                  </div>
             </div>
