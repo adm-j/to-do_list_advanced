@@ -1,14 +1,12 @@
-import {useState, useEffect} from 'react';
-import {useHistory} from 'react-router-dom';
+import {useState} from 'react';
 import '../signup/Signup.css';
 
-const Signup = ({setIsAuthenticatored}) => {
+const Signup = () => {
 
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
 
-    const history = useHistory();
 
     const formHandler = async (event) => {
         event.preventDefault(); //prevent refresh
@@ -23,13 +21,12 @@ const Signup = ({setIsAuthenticatored}) => {
             })
         })
         const data = await res.json();
-        console.log(data.message);
-        setMessage(data.message);
-
-        // history.push("/");
-        // setIsAuthenticatored(true);
-
-
+        console.log(data)
+        try {
+            setMessage(data.message)
+        } catch (error) {
+            setMessage("unable to connect to backend, contact the creator of this website!")
+        }
     };
 
 

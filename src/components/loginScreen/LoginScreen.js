@@ -2,9 +2,9 @@ import {useState} from 'react';
 import {NavLink, useHistory} from 'react-router-dom';
 import '../loginScreen/LoginScreen.css';
 
-const LoginScreen = ({signUp, login, setUser, setIsAuthenticatored}) => {
+const LoginScreen = ({signUp, setIsAuthenticatored, setUsername}) => {
 
-    const [username, setUsername] = useState("");
+    const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
 
@@ -18,27 +18,32 @@ const LoginScreen = ({signUp, login, setUser, setIsAuthenticatored}) => {
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify(
                 { 
-                username: username,
+                username: user,
                 password: password
             })
         })
         const data = await res.json();
-        setUser(data.username)
-
-        history.push(`/${data.user}`);
+        console.log(data.userToken.token);
+        setUsername(data.userName)
+        localStorage.setItem("token", data.userToken.token);
+        history.push(`/${data.userName}`);
         setIsAuthenticatored(true);
     }
 
     return (
              <div className="login">
                  <div>
+                     <form onSubmit={formHandler}>
                      <h3>Login</h3>
-                 <input type="text" className="textBox" placeholder="Username"/>
-                 <input type="text" className="textBox" placeholder="Password"/>
+                 <input type="text" className="textBox" placeholder="Username"
+                 onChange={(e) => setUser(e.target.value)} />
+                 <input type="text" className="textBox" placeholder="Password"
+                 onChange={(e) => setPassword(e.target.value)} />
+                 <input type="submit" className="inputButton" value="Login"/>
+                 </form>
                  </div>
 
                  <div id="loginButtons">
-                 <button className="inputButton" onClick={login}>login</button>
                  <p>Don't have an account?</p>
                  <NavLink to="signup"><button className="inputButton" onClick={signUp}>Sign Up</button></NavLink>
                  </div>

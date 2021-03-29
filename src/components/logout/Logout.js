@@ -1,10 +1,17 @@
 import {NavLink} from 'react-router-dom';
 
-const Logout = () => {
+const Logout = ({setIsAuthenticated, setUser}) => {
+
+    const logoutHandler = () => {
+        
+        setUser("");
+        setIsAuthenticated(false);
+        console.log("logout")
+    }
 
     return (
         <div>
-        <NavLink to="login">logout</NavLink>
+        <NavLink to="/" onClick={logoutHandler}>logout</NavLink>
         </div>
     )
     
