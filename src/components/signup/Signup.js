@@ -19,7 +19,7 @@ const Signup = () => {
                 username: user,
                 password: password
             })
-        })
+        });
         const data = await res.json();
         console.log(data)
         try {

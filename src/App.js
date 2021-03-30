@@ -15,17 +15,34 @@ const App = () => {
   const [loggedIn, setLogin] = useState(false)
   const [user, setUser] = useState("");
 
-  // useEffect(() => {
-  //   if (localStorage.length >0) {
-  //   let token = localStorage.getItem(token);
+  useEffect(() => {
 
-  //     //fetch request to retrive username and notes
+    const noteHandler = async () => {
 
-  //   }
-  //   return () => {
-  //     // cleanup
-  //   }
-  // }, [])
+    if (localStorage.length === 0) {
+      console.log("setting user as not logged in")
+      setLogin(false);
+      setUser("");
+    }
+
+    if (localStorage.length >0) {
+      console.log("attempting to fetch notes as user logged in");
+      let token = localStorage.getItem("token");
+      const res = await fetch("http://localhost:5000/user/auth", {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json();
+      console.log(data);
+      console.log(token);
+      setLogin(true);
+    }
+
+  }
+
+  noteHandler();
+
+  }, [loggedIn])
 
   return (
     <Router>
