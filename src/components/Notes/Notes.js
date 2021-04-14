@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 const Notes = () => {
 
-    const [list, setList] = useState(["add new note"]);
+    const [list, setList] = useState([]);
 
     return (
         <div>

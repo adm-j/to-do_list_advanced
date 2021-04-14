@@ -16,37 +16,38 @@ const App = () => {
   const [loggedIn, setLogin] = useState(false)
   const [user, setUser] = useState("");
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    const noteHandler = async () => {
+  //   const noteHandler = async () => {
 
-    if (localStorage.length === 0) {
-      console.log("setting user as not logged in")
-      setLogin(false);
-      setUser("");
-    }
+  //   if (localStorage.length === 0) {
+  //     console.log("setting user as not logged in")
+  //     setLogin(false);
+  //     setUser("");
+  //   }
 
-    if (localStorage.length >0) { //not working as intended
-      console.log("attempting to fetch notes as user logged in");
-      let localData = localStorage.getItem("data");
-      let parsedData = JSON.parse(localData);
-      const res = await fetch("http://localhost:5000/user/auth", {
-      method: "GET",
-      headers: { "Content-Type": "application/json",
-        Authorization: `Bearer ${parsedData.token}` },
-      });
-      const data = await res.json();
-      console.log(data);
-      console.log(parsedData);
-      setUser(parsedData.user);
-      setLogin(true);
-    }
+  //   if (localStorage.length >0) { //not working as intended
+  //     console.log("attempting to fetch notes as user logged in");
+  //     let localData = localStorage.getItem("data");
+  //     let parsedData = JSON.parse(localData);
+  //     const res = await fetch("http://localhost:5000/user/auth", {
+  //     method: "GET",
+  //     headers: { "Content-Type": "application/json",
+  //       Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDYzNmQyMmQ3MWU3YzRmMDhkM2FiOGUiLCJpYXQiOjE2MTc3Mzc4NjAsImV4cCI6MTYxODM0MjY2MH0.nBAbQ0dbPMYdvaZBgBYPdA62LVjqnaY68hMQ3j7g73g` },
+  //     //${parsedData.token}
+  //     });
+  //     const data = await res.json();
+  //     console.log(data);
+  //     console.log(parsedData);
+  //     setUser(parsedData.user);
+  //     setLogin(true);
+  //   }
 
-  }
+  // }
 
-  noteHandler();
+  // noteHandler();
 
-  }, [])
+  // }, [])
 
   return (
     <Router>
