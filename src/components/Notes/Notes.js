@@ -1,15 +1,15 @@
-import {useState} from 'react';
+import moment from 'moment';
 
-const Notes = () => {
 
-    const [list, setList] = useState([]);
+const Notes = ({list}) => {
 
     return (
-        <div>
+        <div className="noteContainer">
             {list.map((item, index) =>
-            <div key={index}>
-            <p>title</p>
-            <p>{item}</p>
+            <div key={index} id="notes">
+            <h2>{item.title}</h2>
+            <p>{item.content}</p>
+            <p>{moment.utc(item.createdAt).format('MMMM do YYYY, h:mma')}</p>
             </div>
             )}
         </div>

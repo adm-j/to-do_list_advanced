@@ -23,9 +23,8 @@ const LoginScreen = ({signUp, setIsAuthenticatored, setUsername}) => {
             })
         })
         const data = await res.json();
-        console.log(data.token);
         setUsername(data.userName)
-        let sessionData = {user: data.userName, token: data.token}
+        let sessionData = {user: data.userName, id: data.userID}
         localStorage.setItem("data", JSON.stringify(sessionData));
         history.push(`/${data.userName}`);
         setIsAuthenticatored(true);

@@ -1,0 +1,22 @@
+.noteContainer {
+
+display: flex;
+flex-flow: wrap;
+
+color: rgb(161, 0, 0);
+background-color: rgb(219, 219, 219);
+
+margin: 0px;
+padding: 10px;
+
+border-width: 2px;
+border-style: solid;
+}
+
+#notes {
+    margin: 20px;
+    border-style: ridge;
+    border-width: 2px;
+    border-color: rgb(0, 0, 0);
+    padding: 2vh;
+}

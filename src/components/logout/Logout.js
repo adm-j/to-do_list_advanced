@@ -7,6 +7,7 @@ const Logout = ({setIsAuthenticated, setUser}) => {
         setUser("");
         setIsAuthenticated(false);
         console.log("logout")
+        localStorage.clear();
     }
 
     return (
